@@ -1,0 +1,30 @@
+<div>
+    <h3>Subscribed: {{.Expect}}, Retrived: {{.Actual}}. {{if .ShowErr}}Failed retriving may caused of temporary network error or invalid RSS URL.{{end}}</h3>
+    {{range .Feeds}}
+        <div>
+            <h2 class="header"><a href="{{.Link}}">{{.Title}}</a></h2>
+            <div class="content">
+                {{range .Items}}
+                    <p>
+                        <h3>{{.Title}}</h3>
+                        <a href="{{.Link}}">LINK</a>&nbsp;&nbsp;<span>{{.PublishedParsed.Format "15:04 Jan 2"}}</span>
+                        <br>
+                        {{if .Description}}
+                            <div>
+                                {{.Description}}
+                            </div>
+                        {{end}}
+                        {{if .Content}}
+                            <div>
+                                {{.Content}}
+                            </div>
+                        {{end}}
+                    </p>
+                {{else}}
+                    <h4>Nothing new.</h4>
+                {{end}}
+            </div>
+        </div>
+        <br>
+    {{end}}
+</div>
