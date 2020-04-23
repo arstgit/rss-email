@@ -13,13 +13,13 @@ import (
 )
 
 // the interval checking email inbox, in seconds
-const fetchemailInterval = 2 * 60
+const fetchemailInterval = 5 * 60
 
 // the interval fetching RSS feed
-const fetchfeedInterval = 3 * 60
+const fetchfeedInterval = 30 * 60
 
 // the interval printing running info
-const statsInterval = 10
+const statsInterval = 20
 
 type emailConfig struct {
 	from       string

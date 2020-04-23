@@ -11,7 +11,7 @@ rss-demo@outlook.com
 Run the server yourself:
 ```
 $ go get github.com/derekchuank/rss-email
-$ rss-email -email your-email -smtpServer outlook.office365.com:587 -username your-email -password your-password  -imapServer=outlook.office365.com:993 -sendemailInterval 10
+$ rss-email -email your-email -smtpServer outlook.office365.com:587 -username your-email -password your-password  -imapServer=outlook.office365.com:993 -sendemailInterval 240
 ```
 
 Or just use the demo email I provided.
@@ -28,6 +28,16 @@ Wait for your feed, don't forget to check the Junk inbox.
 
 - Unsubscribe. Send email with subject: `rss-email unsubscribe`.
 - List your subscribed RSS. Send email with subject: `rss-email list`.
+
+## Data store
+
+rss-email stores user subscribe data in file `/rss-email/user` periodically.
+
+You can use the corresponding docker image directly:
+
+```
+docker run -v /your/dir:/rss-email -d derekchuank/rss-email -email your-email -smtpServer outlook.office365.com:587 -username your-email -password your-password  -imapServer=outlook.office365.com:993 -sendemailInterval 240
+```
 
 ### See also
 
