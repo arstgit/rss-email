@@ -2,7 +2,6 @@ package main
 
 import (
 	"errors"
-	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -19,7 +18,6 @@ import (
 
 const responseSubscribeSubject = "[rss-email] successfully subscribe"
 const responseSubscribeSubjectFail = "[rss-email] unsuccessfully subscribe"
-const responseSubscribeBody0Url = "no valid RSS urls"
 const responseListSubject = "[rss-email] list command response"
 const responseUnsubscribeSubject = "[rss-email] successfully unsubscribe"
 const responseNotSubscribeSubject = "[rss-email] you haven't subscribed yet."
@@ -145,7 +143,8 @@ func fetchFromBox(config *emailConfig, c *client.Client, boxType string) error {
 			}
 
 			if len(validUrls) == 0 {
-				if err := sendemail(config, fromAddressAddress, responseSubscribeSubjectFail, responseSubscribeBody0Url); err != nil {
+				failBody := "This is the mail body we received: " + string(slurp)
+				if err := sendemail(config, fromAddressAddress, responseSubscribeSubjectFail, failBody); err != nil {
 					log.Printf("error sendemail in subscribe response")
 					continue
 				}
@@ -244,10 +243,7 @@ func parseMultipart(msg *mail.Message) ([]byte, error) {
 
 			contentType := p.Header.Get("Content-Type")
 			if strings.HasPrefix(contentType, "text/plain") {
-				if strings.Contains(contentType, "UTF-8") || strings.Contains(contentType, "ascii") || strings.Contains(contentType, "iso-8859-1") {
-					return slurp, nil
-				}
-				return nil, fmt.Errorf("error reveived email Content-Type: %s", contentType)
+				return slurp, nil
 			}
 		}
 
