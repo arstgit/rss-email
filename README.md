@@ -1,6 +1,6 @@
 # rss-email
 
-[![Build Status](https://travis-ci.org/derekchuank/rss-email.svg?branch=master)](https://travis-ci.org/derekchuank/rss-email)
+[![Test Status](https://github.com/derekchuank/rss-email/workflows/Test/badge.svg)](https://github.com/derekchuank/rss-email/actions)
 
 ## Demo email address
 
