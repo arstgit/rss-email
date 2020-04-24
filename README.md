@@ -2,8 +2,6 @@
 
 [![Test Status](https://github.com/derekchuank/rss-email/workflows/Test/badge.svg)](https://github.com/derekchuank/rss-email/actions)
 
-Support only Outlook and Gmail for now.
-
 ## Demo email address
 
 rss-demo@outlook.com
@@ -40,6 +38,12 @@ You can use the corresponding docker image directly:
 ```
 docker run -v /your/dir:/rss-email -d derekchuank/rss-email -email your-email -smtpServer outlook.office365.com:587 -username your-email -password your-password  -imapServer=outlook.office365.com:993 -sendemailInterval 240
 ```
+
+## Compatibility
+
+Support only Outlook and Gmail as subscriber for now.
+
+For other email service providers, 163 and QQ, for example, their sent email message body may have a distinct encoding this program haven't implemented yet.
 
 ### See also
 
