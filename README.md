@@ -2,6 +2,8 @@
 
 [![Test Status](https://github.com/derekchuank/rss-email/workflows/Test/badge.svg)](https://github.com/derekchuank/rss-email/actions)
 
+Support only Outlook and Gmail for now.
+
 ## Demo email address
 
 rss-demo@outlook.com

@@ -249,5 +249,6 @@ func parseMultipart(msg *mail.Message) ([]byte, error) {
 
 		return nil, errors.New("received email not valid mime multipart")
 	}
+
 	return nil, errors.New("received email not multipart content type")
 }
